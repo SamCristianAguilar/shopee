@@ -1,0 +1,16 @@
+ion-item {
+  padding: 0;
+}
+ion-row {
+  padding: 0;
+}
+ion-card-content {
+  padding: 1%;
+}
+
+ion-row[name="rowItems"] {
+  border-bottom: 1px #3880ff solid;
+}
+ion-content[name="content"] {
+  padding: 1px !important;
+}

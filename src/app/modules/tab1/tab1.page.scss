@@ -1,0 +1,23 @@
+/* Aumentar el tamaño del ícono del carrito */
+ion-icon[name="cart"] {
+  font-size: 2em; /* Ajusta este valor según lo necesites */
+}
+ion-button[name="shop"] {
+  font-size: 70%; /* Ajusta este valor según lo necesites */
+}
+
+/* Ajustar el tamaño y posición del badge (contador) */
+ion-badge {
+  font-size: 0.7em;
+  position: absolute;
+  top: 5px; /* Ajusta estos valores para la posición */
+  left: 80%;
+}
+
+// Estilo global (afectaría a todos los botones de este tipo en tu aplicación)
+
+// Estilo local (sólo afectaría a este componente)
+:host ion-card ion-button {
+  max-width: 150px;
+  white-space: normal;
+}
