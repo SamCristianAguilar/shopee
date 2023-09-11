@@ -2,19 +2,19 @@ import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Tab2Page } from './tab2.page';
-import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
+import { Tab3Page } from './tab3.page';
 
-import { Tab2PageRoutingModule } from './tab2-routing.module';
+import { Tab3PageRoutingModule } from './tab3-routing.module';
+import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
+    Tab3PageRoutingModule,
     ExploreContainerComponentModule,
-    Tab2PageRoutingModule
   ],
-  declarations: [Tab2Page]
+  declarations: [Tab3Page],
 })
-export class Tab2PageModule {}
+export class Tab3PageModule {}

@@ -1,0 +1,51 @@
+<ion-content name="content" class="">
+  <ion-card>
+    <ion-card-header color="primary">
+      <ion-card-title>Factura</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-grid>
+
+        <ion-row name="rowItems">
+          <ion-col><strong>Producto</strong></ion-col>
+          <ion-col><strong>Precio</strong></ion-col>
+          <ion-col><strong>Cantidad</strong></ion-col>
+          <ion-col><strong>Total</strong></ion-col>
+        </ion-row>
+
+        <ion-row name="rowItems" *ngFor="let item of carrito">
+
+          <ion-col>{{ item.nombreProducto}} {{item.descripcion}}</ion-col>
+          <ion-col>{{ item.precio | currency }}</ion-col>
+          <ion-col>{{ item.cantidad }}</ion-col>
+          <ion-col>{{ item.precio * item.cantidad | currency }}</ion-col>
+
+        </ion-row>
+        <ion-row>
+          <ion-col><strong>Subtotal</strong></ion-col>
+          <ion-col>{{ subtotal | currency }}</ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col><strong>Iva</strong></ion-col>
+          <ion-col>{{ iva | currency }}</ion-col>
+          <!-- Asume gastos de envío fijos, puedes ajustar esto según tus necesidades -->
+        </ion-row>
+
+        <ion-row>
+          <ion-col><strong>Precio total</strong></ion-col>
+          <ion-col>{{ total | currency }}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Al final del template de tu componente factura.component.html -->
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button color="primary" (click)="regresarInicio()">
+      <ion-icon name="home"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

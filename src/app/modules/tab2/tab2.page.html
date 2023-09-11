@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Carrito</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let venta of carritoService.getCarrito(); let i = index">
+      <ion-label>
+        {{ venta.nombreProducto }} (x{{ venta.cantidad }})
+      </ion-label>
+      <ion-badge>
+        {{ venta.precio * venta.cantidad | currency }}
+      </ion-badge>
+      <ion-button fill="clear" color="danger" (click)="eliminarDelCarrito(i)">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+<ion-item>
+  <ion-label>Subtotal</ion-label>
+  <ion-text slot="end">{{ carritoService.getSubtotal() | currency }}</ion-text>
+</ion-item>
+
+<ion-item>
+  <ion-label>IVA (19%)</ion-label> <!-- Ajusta el porcentaje según el valor que uses -->
+  <ion-text slot="end">{{ carritoService.getIVA() | currency }}</ion-text>
+</ion-item>
+
+<ion-item>
+  <ion-label>Total</ion-label>
+  <ion-text slot="end">{{ carritoService.getTotal() | currency }}</ion-text>
+</ion-item>
+
+<ion-button [disabled]="!carrito || carrito.length === 0" expand="full" (click)="efectuarCompra()">Efectuar
+  Compra</ion-button>
